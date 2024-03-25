@@ -1,10 +1,11 @@
 import React from 'react'
+import classes from './Post.module.css';
 
-export default function PostList({}) {
+export default function PostList({author, overView}) {
   return (
-   <li>
-<p className={classes.author}></p>
-   <p className={classes.text }>  </p>
+   <li className={classes.post}>
+<p className={classes.author}>{author}</p>
+   <p className={classes.text }> {overView} </p>
    </li>
   )
 }

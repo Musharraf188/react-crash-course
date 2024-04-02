@@ -14,7 +14,8 @@
     margin: 0;
     text-transform: uppercase;
   }
-  
+
+
   .text {
     white-space: pre-wrap;
     font-size: 1.25rem;
@@ -22,8 +23,9 @@
     color: #593884;
     font-style: italic;
   }
-  
-  @keyframes animate-in {
+
+
+@keyframes animate-in {
     from {
       opacity: 0;
       transform: translateY(1rem);

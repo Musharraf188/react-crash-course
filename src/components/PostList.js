@@ -1,37 +1,25 @@
-import React, { useState } from "react";
 import Post from "./Post";
 import classes from "./PostList.module.css";
-import NewPost from "./NewPost";
-import Modal from "./Modal";
+import { useLoaderData } from "react-router-dom";
 
-export default function PostList({onPosting, onStop}) {
+export default function PostList() {
+  const posts = useLoaderData();
 
-  const [enteredBody, setEnteredBody] = useState("");
-  const [enteredAthor, setEnteredAthor] = useState("");
-  function changeBodyHandler(event) {
-    setEnteredBody(event.target.value);
-  }
-  function changeAuthorHandler(event) {
-    setEnteredAthor(event.target.value);
-  }
-
-  let modalContent;
-  if(onPosting){
-    modalContent =   <Modal onClose={onStop}>
-    <NewPost
-      onBodyChange={changeBodyHandler}
-      onAuthorChange={changeAuthorHandler}
-    />
-    </Modal>
-  }
   return (
     <>
-    {modalContent}
-  
-      <ul className={classes.posts}>
-        <Post author={enteredAthor} body={enteredBody} />
-        <Post author='Musharraf' body='React js is Awesome!' />
-      </ul>
+      {posts.length > 0 && (
+        <ul className={classes.posts}>
+          {posts.map((post) => (
+            <Post author={post.author} body={post.body} />
+          ))}
+        </ul>
+      )}
+      {posts.length === 0 && (
+        <div style={{ textAlign: "center", color: "white" }}>
+          <h2>There are no post yet.</h2>
+          <p>Start adding some!</p>
+        </div>
+      )}
     </>
   );
-  }
+}

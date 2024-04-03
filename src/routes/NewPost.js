@@ -4,9 +4,6 @@ import { Link, Form, redirect } from "react-router-dom";
 import Modal from '../components/Modal';
 
 function NewPost() {
- 
-  
-  
   return (
     <Modal >
     <Form method="post" className={classes.form} >
@@ -19,7 +16,7 @@ function NewPost() {
         <input type="text" id="name" name="author" required  />
       </p>
       <p className={classes.actions}>
-        <Link to=".." button type="button">
+        <Link to=".."  type="button">
           Cancel
         </Link>
         <button>Submit</button>

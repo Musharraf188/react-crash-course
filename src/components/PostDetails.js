@@ -32,7 +32,3 @@ function PostDetails() {
 }
 
 export default PostDetails;
-
-export function loader(){
-    fetch('http//localhost8080/' + '')
-}
